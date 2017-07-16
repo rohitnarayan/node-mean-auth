@@ -1,0 +1,23 @@
+{
+
+    "name": "faasos",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Rohit Jaiswal",
+    "license": "ISC",
+    "devDependencies": {
+      "express": "^4.15.3",
+      "body-parser":"*",
+      "cors":"*",
+      "passport":"*",
+      "mongoose":"*",
+      "jsonwebtoken":"*",
+      "morgan":"*",
+      "bcrypt-nodejs":"*",
+      "passport-jwt":"*"
+    }
+}
