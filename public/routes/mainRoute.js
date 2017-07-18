@@ -1,13 +1,13 @@
 var app = angular.module("app");
 
-app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$stateProvider) {
-	
-	$urlRouterProvider.otherwise("/home");
+app.config(["$urlRouterProvider","$stateProvider",function($urlRouterProvider,$stateProvider){
+
+	$urlRouterProvider.otherwise("/");
 
 	$stateProvider
-		.state("dashboard",{
-			url:"/dashboard",
-			templateUrl:"views/dashboard.html",
+		.state("home",{
+			url:"/home",
+			templateUrl:"views/home.html",
 			controller:"mainController"
 		})
 		.state("about",{
@@ -15,17 +15,14 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
 			templateUrl:"views/about.html",
 			controller:"mainController"
 		})
-		.state("home",{
-			url:"/home",
-			templateUrl:"views/homePage.html",
-			controller:"mainController"
-		}).
-		state("signUp",{
-			url:"/signup",
-			templateUrl:"views/signup.html"
-		})
-		.state("signIn",{
+		.state("signin",{
 			url:"/signin",
-			templateUrl:"views/signin.html"
+			templateUrl:"views/signin.html",
+			controller:"mainController"
+		})
+		.state("signup",{
+			url:"/signup",
+			templateUrl:"views/signup.html",
+			controller:"mainController"
 		});
 }]);
