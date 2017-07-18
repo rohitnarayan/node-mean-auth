@@ -14,11 +14,11 @@ angular
 
 			console.log(jsonData);
 
-			// $http({method:"POST",url:"http://localhost:8080/users/register",data:jsonData})
-			// 	.then(function(response) {
-			// 		console.log(response);
-			// 	},function(err){
-			// 		console.log(err);
-			// });
+			$http({method:"POST",url:"http://localhost:8080/users/register",data:jsonData})
+				.then(function(response) {
+					console.log(response);
+				},function(err){
+					console.log(err);
+			});
 		}
 	}]);
