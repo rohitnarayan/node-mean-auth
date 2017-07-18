@@ -20,11 +20,15 @@ const port = 8080;
 
 //MIDDLEWARES
 app.use(cors());
-app.use(bodyParser.json());
-app.use("/users",users);
+// app.use(bodyParser.json());
+var jsonParser = bodyParser.json();
+app.use("/users",jsonParser,users);
 app.use(express.static(path.join(__dirname,"public")));
 app.use(passport.initialize());
 app.use(passport.session());
+
+// 	STATIC MIDDLEWARE
+app.use(express.static(path.join(__dirname,"public")));
 
 require("./config/passport")(passport);
 

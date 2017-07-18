@@ -1,0 +1,40 @@
+<div class="container" ng-controller="signupController as vm">
+	<form ng-model="vm.signUpForm">
+		<div class="col-md-12">
+			<div class="col-md-4">
+				<div class="form-group">
+				  	<label class="control-label" for="name">Name</label>
+				  	<input type="text" class="form-control" value="{{vm.signUpForm.name}}" ng-model="vm.signUpForm.name" id="name">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				  	<label class="control-label" for="email">Email</label>
+				  	<input type="text" class="form-control" value="{{vm.signUpForm.emai}}" ng-model="vm.signUpForm.email" id="email">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-4">
+				<div class="form-group">
+				  	<label class="control-label" for="username">Username</label>
+				  	<input type="text" class="form-control" value="{{vm.signUpForm.user}}" ng-model="vm.signUpForm.username" id="username">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				  	<label class="control-label" for="password">Password</label>
+				  	<input type="text" class="form-control" value="{{vm.signUpForm.pass}}" ng-model="vm.signUpForm.password" id="password">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-2">
+				<a class="btn btn-default" type="submit" ng-click="vm.formSubmit()">SignUp</a>
+			</div>
+			<div class="col-md-2">
+				<a class="btn btn-danger">Reset</a>
+			</div>
+		</div>
+	</form>
+</div>
