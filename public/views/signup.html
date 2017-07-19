@@ -1,16 +1,19 @@
 <div class="container" ng-controller="signupController as vm">
-	<form ng-model="vm.signUpForm">
+	<form ng-model="vm.signUpForm" name="signUpForm" novalidate>
 		<div class="col-md-12">
 			<div class="col-md-4">
 				<div class="form-group">
 				  	<label class="control-label" for="name">Name</label>
-				  	<input type="text" class="form-control" value="{{vm.signUpForm.name}}" ng-model="vm.signUpForm.name" id="name">
+				  	<input type="text" name="name" class="form-control" required="required" ng-model="vm.signUpForm.name" id="name">
+				  	<span ng-if="signUpForm.name.$touched && signUpForm.name.$error.required" class="message">This field is required</span>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
 				  	<label class="control-label" for="email">Email</label>
-				  	<input type="text" class="form-control" value="{{vm.signUpForm.emai}}" ng-model="vm.signUpForm.email" id="email">
+				  	<input type="email" class="form-control" required name="email" ng-model="vm.signUpForm.email" id="email">
+				  	<span ng-if="signUpForm.email.$touched && signUpForm.email.$error.required" class="message">This field is required</span>
+				  	<span ng-if="signUpForm.email.$touched && signUpForm.email.$error.email" class="message">Input should be a valid email-id</span>
 				</div>
 			</div>
 		</div>
@@ -18,23 +21,33 @@
 			<div class="col-md-4">
 				<div class="form-group">
 				  	<label class="control-label" for="username">Username</label>
-				  	<input type="text" class="form-control" value="{{vm.signUpForm.user}}" ng-model="vm.signUpForm.username" id="username">
+				  	<input type="text" class="form-control" ng-minlength="5" ng-maxlength="10" name="username" required ng-model="vm.signUpForm.username" id="username">
+				  	<span ng-if="signUpForm.username.$touched && signUpForm.username.$error.required" class="message">This field is required</span>
+				  	<span class="message" ng-if="signUpForm.username.$touched && signUpForm.username.$error.minlength">Username should be minimum 5 characters</span>
+				  	<span class="message" ng-if="signUpForm.username.$touched && signUpForm.username.$error.maxlength">Username should be maximum 10 characters</span>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
 				  	<label class="control-label" for="password">Password</label>
-				  	<input type="text" class="form-control" value="{{vm.signUpForm.pass}}" ng-model="vm.signUpForm.password" id="password">
+				  	<input type="text" class="form-control" ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,}$/" required name="password" ng-model="vm.signUpForm.password" id="password">
+				  	<span ng-if="signUpForm.password.$touched && signUpForm.password.$error.required" class="message">This field is required</span>
+				  	<span class="message" ng-if="signUpForm.password.$touched && signUpForm.password.$error.pattern">Password must contain - atleast 1 number, atleast 1 uppercase, atleast 1 lowercase and must be minimum 7 characters long.</span>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-12">
 			<div class="col-md-2">
-				<a class="btn btn-default" type="submit" ng-click="vm.formSubmit()">SignUp</a>
+				<a class="btn btn-default" ng-disabled="signUpForm.$invalid" type="submit" ng-click="vm.signUpForm.$valid && vm.formSubmit()">SignUp</a>
 			</div>
 			<div class="col-md-2">
-				<a class="btn btn-danger">Reset</a>
+				<a class="btn btn-danger" ng-click="vm.reset()" >Reset</a>
 			</div>
 		</div>
 	</form>
 </div>
+<style>
+	.message {
+		color: red;
+	}
+</style>
