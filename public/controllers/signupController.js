@@ -8,4 +8,11 @@ app.controller("signupController",['$scope',"signupService",function($scope,sign
 	vm.formSubmit = function(){
 		signupService.signupData(vm.signUpForm);
 	}
+
+	vm.reset = function() {
+		vm.signUpForm.name="";
+		vm.signUpForm.email="";
+		vm.signUpForm.password="";
+		vm.signUpForm.username="";
+	}
 }]);
