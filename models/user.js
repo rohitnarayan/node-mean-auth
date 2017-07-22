@@ -11,10 +11,12 @@ const schema = new Schema({
 	},
 	email : {
 		type:String,
+		unique:true,
 		required:true
 	},
 	username:{
 		type:String,
+		unique:true,
 		required:true
 	},
 	password:{

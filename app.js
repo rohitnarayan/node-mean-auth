@@ -12,7 +12,7 @@ const config = require("./config/database.js");
 mongoose.connect(config.database);
 
 const app = express();
-const port = 8080;
+const port = 3000;
 
 //MIDDLEWARES
 app.use(cors());
